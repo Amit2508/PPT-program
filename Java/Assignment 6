@@ -1,0 +1,71 @@
+Q1.- In Java, a Collection is a framework provided by the Java Collections API that represents a group of objects known as elements. It is used to store, retrieve, manipulate, and process groups of objects efficiently. The Collection framework provides various classes and interfaces that implement different data structures like lists, sets, maps, etc.
+
+Q2. -
+ Collection (with a capital "C") is a framework provided by the Java Collections API that represents a group of objects. It is an interface that extends the `Iterable` interface and serves as the root interface for all collections in Java.
+- collections (with a lowercase "c") refer to the general concept of a group of objects or elements. It is a broader term that encompasses various data structures like arrays, lists, sets, maps, etc.
+
+Q3. - The Collection framework in Java offers several advantages, including:
+  1. Reusability: Standardized collection classes can be reused in different parts of the application or across different projects.
+  2. Performance: The framework provides efficient implementations of data structures for storing and retrieving elements quickly.
+  3. Type Safety: Generics in collection classes ensure type safety, reducing the chance of runtime errors.
+  4. Consistency: The API provides a consistent set of methods and operations for different collection types.
+  5. Interoperability: Collections can be easily converted to arrays and vice versa, facilitating data exchange with other parts of the application.
+  6. Flexibility: Various interfaces allow developers to choose the appropriate collection type based on their requirements.
+  7. Rich Functionality: The framework includes methods for sorting, searching, filtering, and manipulating collections efficiently.
+
+Q4. 
+- The Collection framework in Java includes several interfaces that define the core behavior of different types of collections. Some key interfaces are:
+  1. `Collection`: The root interface for all collections, representing a group of objects. It extends the `Iterable` interface and defines basic methods like `add`, `remove`, `size`, etc.
+  2. `List`: An ordered collection that allows duplicate elements. It provides methods to access elements by index and supports various operations for list manipulation.
+  3. `Set`: A collection that does not allow duplicate elements. It ensures unique elements based on the elements' equality and hash code.
+  4. `Map`: An object that maps keys to values. It allows one-to-one mapping and does not allow duplicate keys. The `Map` interface does not extend `Collection`.
+  5. `Queue`: A collection that represents a queue data structure and follows the First-In-First-Out (FIFO) order.
+
+Q5- List and Set are two different types of collections in Java:
+  - List:
+    - Allows duplicate elements.
+    - Maintains the insertion order, and elements can be accessed by their index.
+    - Implemented by classes like `ArrayList`, `LinkedList`, etc.
+  - Set:
+    - Does not allow duplicate elements.
+    - Does not maintain the insertion order.
+    - Implemented by classes like `HashSet`, `TreeSet`, etc.
+
+Q6. - Iterator:
+  - Iterator is a simple interface used to traverse collections in a forward direction.
+  - It is suitable for traversing any type of collection, including lists, sets, and maps.
+  - It provides basic methods like `hasNext()`, `next()`, and `remove()`.
+- ListIterator:
+  - ListIterator is a sub-interface of Iterator and is specific to List collections.
+  - It allows bidirectional traversal (forward and backward) of lists.
+  - It provides additional methods like `hasPrevious()`, `previous()`, `add()`, `set()`, etc.
+
+Q7.
+- Comparable:
+  - `Comparable` is an interface used for natural ordering of objects.
+  - The class that implements `Comparable` defines its own natural ordering logic by implementing the `compareTo()` method.
+  - It allows sorting of objects based on their own characteristics.
+- Comparator:
+  - `Comparator` is an interface used for custom sorting of objects.
+  - It allows sorting of objects based on specific criteria defined in a separate class that implements the `Comparator` interface.
+  - It enables sorting objects in multiple ways without modifying their original class.
+
+Q8. 
+- In a `HashMap`, a collision occurs when two or more keys hash to the same index in the underlying array. Since `HashMap` uses an array to store key-value pairs, multiple keys can potentially map to the same array index. To handle collisions, `HashMap` uses a linked list (or a balanced tree in Java 8 and later) to store multiple key-value pairs that hash to the same index.
+
+Q9.
+- HashMap:
+  - Stores key-value pairs in an unordered manner.
+  - Provides constant-time (O(1)) average-case complexity for basic operations like `get()` and `put()`.
+  - Does not maintain the natural ordering of keys.
+  - Implemented as an array of linked lists (or balanced trees in Java 8 and later) to handle collisions.
+- TreeMap:
+  - Stores key-value pairs in a sorted order based on the natural ordering of keys or a custom comparator.
+  - Provides logarithmic-time (O(log n)) complexity for basic operations.
+  - Maintains the natural ordering of keys.
+  - Implemented as a Red-Black tree data structure.
+
+Q10. 
+- `LinkedHashMap` is a class in Java that extends `HashMap` and maintains the order of insertion of elements. It is similar to a regular `HashMap`, but it additionally maintains a doubly-linked list to preserve the order of elements. This allows the elements to be retrieved in the same order they were inserted. `LinkedHashMap` combines the benefits of both a hash table and a linked list, providing predictable
+
+
