@@ -1,0 +1,282 @@
+1.
+
+import java.util.Scanner;
+
+public class BankAccount {
+    private String accountHolderName;
+    private double balance;
+
+    public BankAccount(String accountHolderName) {
+        this.accountHolderName = accountHolderName;
+        this.balance = 0.0;
+    }
+
+    public String getAccountHolderName() {
+        return accountHolderName;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposit of " + amount + " successfully completed.");
+        } else {
+            System.out.println("Invalid deposit amount. Please enter a positive amount.");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrawal of " + amount + " successfully completed.");
+        } else {
+            System.out.println("Insufficient balance or invalid withdrawal amount.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the account holder's name: ");
+        String accountHolderName = scanner.nextLine();
+
+        BankAccount account = new BankAccount(accountHolderName);
+
+        System.out.println("Account created successfully for " + account.getAccountHolderName());
+
+        while (true) {
+            System.out.println("\nOptions:");
+            System.out.println("1. Get account holder name");
+            System.out.println("2. Get account balance");
+            System.out.println("3. Deposit");
+            System.out.println("4. Withdraw");
+            System.out.println("5. Exit");
+
+            System.out.print("Enter your choice (1-5): ");
+            int choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Account Holder Name: " + account.getAccountHolderName());
+                    break;
+                case 2:
+                    System.out.println("Account Balance: " + account.getBalance());
+                    break;
+                case 3:
+                    System.out.print("Enter the amount to deposit: ");
+                    double depositAmount = scanner.nextDouble();
+                    account.deposit(depositAmount);
+                    break;
+                case 4:
+                    System.out.print("Enter the amount to withdraw: ");
+                    double withdrawAmount = scanner.nextDouble();
+                    account.withdraw(withdrawAmount);
+                    break;
+                case 5:
+                    System.out.println("Thank you for using the banking system. Goodbye!");
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Invalid choice. Please select a valid option.");
+            }
+        }
+    }
+}
+
+
+2. 
+
+// Parent class (Superclass)
+class Vehicle {
+    public void start() {
+        System.out.println("Vehicle is starting.");
+    }
+}
+
+// Child class (Subclass) inheriting from Vehicle
+class Car extends Vehicle {
+    // Method overriding: Providing a different implementation for the start() method
+    @Override
+    public void start() {
+        System.out.println("Car is starting.");
+    }
+}
+
+public class MethodOverridingExample {
+    public static void main(String[] args) {
+        Vehicle vehicle = new Vehicle();
+        Car car = new Car();
+
+        // Calling the start() method on the Vehicle object
+        vehicle.start(); // Output: Vehicle is starting.
+
+        // Calling the start() method on the Car object
+        car.start(); // Output: Car is starting.
+    }
+}
+
+
+3. 
+
+// Parent class (Superclass)
+class Shape {
+    public void draw() {
+        System.out.println("Drawing a shape");
+    }
+}
+
+// Child class (Subclass) inheriting from Shape
+class Circle extends Shape {
+    // Method overriding: Providing a different implementation for the draw() method
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
+
+// Another child class (Subclass) inheriting from Shape
+class Rectangle extends Shape {
+    // Method overriding: Providing a different implementation for the draw() method
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
+
+public class RuntimePolymorphismExample {
+    public static void main(String[] args) {
+        Shape shape1 = new Circle();
+        Shape shape2 = new Rectangle();
+
+        // Calling the draw() method on Circle and Rectangle objects through Shape references
+        shape1.draw(); // Output: Drawing a circle
+        shape2.draw(); // Output: Drawing a rectangle
+    }
+}
+
+
+4. 
+
+public class CompileTimePolymorphismExample {
+    // Method with one parameter
+    public int add(int a) {
+        return a;
+    }
+
+    // Method with two parameters
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    // Method with three parameters
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        CompileTimePolymorphismExample obj = new CompileTimePolymorphismExample();
+
+        int result1 = obj.add(5);
+        int result2 = obj.add(10, 20);
+        int result3 = obj.add(3, 7, 2);
+
+        System.out.println("Result 1: " + result1); // Output: Result 1: 5
+        System.out.println("Result 2: " + result2); // Output: Result 2: 30
+        System.out.println("Result 3: " + result3); // Output: Result 3: 12
+    }
+}
+
+
+5.
+
+Loose coupling is a design principle in object-oriented programming that promotes the independence and flexibility of classes or modules. It allows components to interact with each other in a way that reduces their dependencies, making the codebase more maintainable and easier to modify or extend. Here are some object-oriented concepts and techniques that can be used to achieve loose coupling in Java:
+
+1. Encapsulation:
+   Encapsulation is the process of hiding the internal implementation details of a class and exposing only the necessary functionalities through well-defined interfaces (public methods). By using encapsulation, classes can interact with each other through interfaces without needing to know about the internal workings of each other.
+
+2. Abstraction:
+   Abstraction allows you to create interfaces or abstract classes that define the contract for interacting with an object without exposing its underlying implementation. This way, client classes only interact with abstract types, and the actual implementations can be changed or extended without affecting the clients.
+
+3. Interface-based Programming:
+   Interfaces in Java define contracts that classes can implement. By programming to interfaces rather than concrete classes, you can reduce direct dependencies between components. Client classes depend on the interfaces, and they can work with any class that implements the interface without needing to know the exact implementation.
+
+4. Dependency Injection (DI):
+   Dependency Injection is a technique where the dependencies of a class are provided externally rather than being created within the class itself. It allows classes to work with abstractions (interfaces) instead of concrete implementations, making it easier to switch or modify implementations without changing the class that uses them.
+
+5. Inversion of Control (IoC) Containers:
+   IoC containers, such as Spring Framework's ApplicationContext, manage the creation and configuration of objects and handle their dependencies. By using IoC containers, the application becomes more loosely coupled as the objects rely on the container to provide their dependencies.
+
+6. Composition over Inheritance:
+   Favor composition (using objects of other classes as members) over inheritance. Inheritance creates tight coupling between classes, while composition allows for more flexible and maintainable code by reusing functionality through delegation rather than inheritance.
+
+By applying these object-oriented concepts and techniques, you can achieve loose coupling in Java, which leads to more modular, maintainable, and flexible code. Loose coupling makes it easier to extend and modify the system without causing unintended side effects, which is crucial for building scalable and robust applications.
+
+
+ques 6 .
+
+Encapsulation is a fundamental concept in object-oriented programming that provides several benefits in Java and other programming languages. Here are some key benefits of encapsulation in Java:
+
+1. Data Hiding: Encapsulation allows you to hide the internal details and implementation of an object from other parts of the program. By providing limited access to the internal state of an object, encapsulation protects it from unauthorized or unintended modifications. This helps maintain data integrity and ensures that the object is accessed and modified only through the defined methods.
+
+2. Modularity and Maintainability: Encapsulation promotes modularity by encapsulating related data and behavior within a single object. This makes the code easier to understand, organize, and maintain. Changes to the internal implementation of an object can be made without affecting other parts of the program as long as the public interface remains unchanged.
+
+3. Code Reusability: Encapsulated objects can be easily reused in different parts of the program or in other programs without concern for their internal implementation. By exposing a clear and consistent interface, encapsulation enables code reuse and promotes the development of reusable components.
+
+4. **Flexibility and Evolution: Encapsulation provides a level of abstraction that allows the internal implementation of an object to evolve over time without affecting other parts of the program. You can modify or enhance the internal implementation of an object as long as the public interface remains unchanged, preserving compatibility with existing code.
+
+5. Security and Access Control: Encapsulation enables you to control access to the internal state and behavior of an object. By defining appropriate access modifiers (e.g., private, protected, public) for the members of a class, you can enforce security and restrict access to sensitive information. This helps prevent unauthorized access and ensures that interactions with an object occur through well-defined methods.
+
+Overall, encapsulation helps improve code maintainability, reusability, security, and flexibility. It supports the principles of information hiding, modular design, and abstraction, leading to more robust and scalable software systems.
+
+ques 7. 
+No, Java is not a 100% object-oriented programming (OOP) language. While Java is primarily based on the principles of object-oriented programming and heavily encourages OOP practices, it does have some non-object-oriented aspects. The reasons for this are historical and practical.
+
+1. Primitive Data Types: Java includes primitive data types such as `int`, `float`, `char`, etc., which are not objects. These types are used to represent simple values and do not have methods or other features associated with objects. However, Java provides wrapper classes (e.g., `Integer`, `Float`, `Character`, etc.) to convert primitive types to objects when necessary, allowing them to participate in object-oriented operations.
+
+2. Static Members: Java supports static methods and variables at the class level, which are associated with the class rather than instances of the class. Static members are not part of the object's state, and they can be accessed without creating an instance of the class. This concept is not entirely in line with the principles of object-oriented programming, where the focus is on the behavior and state of objects.
+
+3. Static Context: In Java, static methods cannot access instance-specific variables or methods directly. They can only access other static members. This limitation can be seen as a deviation from pure OOP principles, where objects interact and communicate with each other.
+
+4. Procedural Programming: Java allows the use of procedural programming constructs like loops (for, while) and conditional statements (if-else). While these constructs are widely used in programming, they are not specific to object-oriented programming.
+
+ques8.
+
+Abstraction is a fundamental concept in Java and other object-oriented programming languages. It allows you to represent the essential features of an object while hiding unnecessary implementation details. Abstraction in Java provides several advantages, which contribute to the robustness, flexibility, and maintainability of the codebase. Here are some key advantages of abstraction in Java:
+
+1. Simplification and Focus: Abstraction simplifies complex systems by breaking them down into smaller, manageable units. It allows developers to focus on the high-level design and functionality of objects without worrying about their internal details. This separation of concerns makes code more readable and easier to maintain.
+
+2. Data Hiding: Abstraction allows you to hide the internal implementation of an object and expose only relevant information through well-defined interfaces (methods). This data hiding provides encapsulation and prevents direct access to the object's internal state, protecting it from unintended modifications.
+
+3. Flexibility and Extensibility: By using abstraction, you can define interfaces or abstract classes that represent a contract for interacting with objects. Concrete classes that implement these interfaces can provide their specific implementations. This flexibility enables you to change or extend the behavior of classes without affecting the clients that use them.
+
+4. Code Reusability: Abstraction promotes code reusability through inheritance and interfaces. Abstract classes can serve as a base for multiple subclasses, inheriting their common properties and behavior. Interfaces define common behavior that can be implemented by unrelated classes, allowing them to share functionality.
+
+5. Polymorphism: Abstraction is closely related to polymorphism, a core principle of object-oriented programming. Polymorphism allows objects to be treated as instances of their parent class or interface, enabling a single method to operate on multiple types of objects. This enhances the flexibility and adaptability of the code.
+
+6. Security and Privacy: Abstraction provides a level of security by hiding implementation details from external users. It allows you to expose only what is necessary and keep sensitive data and methods hidden from unauthorized access.
+
+7. Code Maintainability: Abstraction results in more modular and maintainable code. By breaking down complex systems into smaller, self-contained units with clear interfaces, it becomes easier to modify or extend individual components without affecting the entire system.
+
+ques9. 
+
+Abstraction is a fundamental concept in object-oriented programming that allows you to define the essential characteristics of an object while hiding the implementation details. It provides a way to represent complex systems in a simplified manner, focusing on what an object does rather than how it does it. Let's explain abstraction with an example:
+
+Example: Shape Drawing Application
+
+Suppose we are building a shape drawing application in Java. We want to represent different shapes, such as circles, rectangles, and triangles, and provide a method to draw each shape on the screen. We can use abstraction to define a common interface for all shapes, while each shape's implementation details remain hidden.
+
+// Abstract class or interface representing a shape
+abstract class Shape {
+    // Abstract method to draw the shape (no implementation)
+    public abstract void draw();
+}
+
+
+ques 10.
+
+In Java, a final class is a class that cannot be subclassed or extended by other classes. When a class is declared as final, it means that it is the end of its inheritance chain, and no other class can inherit from it. Final classes are often used to prevent further extension or modification of specific classes, making them effectively sealed and providing a level of security and control over the class design.
+
+To declare a final class in Java, you use the final keyword before the class definition. 
