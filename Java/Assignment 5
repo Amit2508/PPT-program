@@ -1,0 +1,50 @@
+1.
+An exception in Java is an event that occurs during the execution of a program that disrupts the normal flow of program instructions. It represents an abnormal condition or error that can occur during runtime and needs to be handled by the program to prevent the application from terminating abruptly.
+2. 
+Exception handling is the process of dealing with runtime errors and abnormal conditions in a program. It involves the use of try-catch blocks to catch and handle exceptions when they occur, allowing the program to gracefully recover from errors and continue execution rather than crashing.
+3. 
+Checked Exceptions: These are exceptions that are checked at compile-time by the Java compiler. Methods that can throw checked exceptions must declare them using the throws keyword. Examples include IOException, SQLException, and InterruptedException.
+Unchecked Exceptions: These are exceptions that are not checked at compile-time and are also known as runtime exceptions. They do not require explicit handling in the code, although it's generally a good practice to handle them. Examples include NullPointerException, ArithmeticException, and ArrayIndexOutOfBoundsException.
+4.
+throw: It is used to explicitly throw an exception from a method or block of code. It is followed by an instance of the Throwable class or its subclasses.
+throws: It is used in a method signature to declare that the method might throw one or more types of exceptions. It specifies the type of exceptions that may be thrown by the method, allowing callers of the method to handle or propagate those exceptions.
+5.
+Multithreading in Java is the concurrent execution of multiple threads within the same Java application. A thread is a lightweight process that represents an independent path of execution within a program. Multithreading allows different parts of a program to run concurrently, thereby increasing efficiency and responsiveness.
+Advantages of multithreading:
+Concurrency: Multithreading allows multiple tasks to be executed concurrently, improving the overall performance and efficiency of the application.
+Responsiveness: By utilizing separate threads for time-consuming tasks, the application remains responsive to user interactions.
+Resource Sharing: Threads can share resources (like memory) more efficiently than separate processes, reducing memory usage and overhead.
+Asynchronous Programming: Threads enable asynchronous execution, where tasks can run in the background without blocking the main execution flow.
+Parallel Processing: Multithreading enables parallel processing, taking advantage of multi-core processors for faster execution of computationally intensive tasks.
+6.
+class MyCustomException extends Exception {
+    public MyCustomException(String message) {
+        super(message);
+    }
+}
+
+public class CustomExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int num = 10;
+            if (num > 5) {
+                throw new MyCustomException("Number is greater than 5");
+            }
+        } catch (MyCustomException e) {
+            System.out.println("Caught custom exception: " + e.getMessage());
+        }
+    }
+}
+
+7.
+Exceptions can be handled using the try-catch block. The code that might throw an exception is placed inside the try block, and the corresponding exception handling code is placed inside the catch block.
+If an exception occurs within the try block, the control is transferred to the corresponding catch block, where the exception can be handled or logged.
+8.
+In Java, a Thread is a separate execution path that allows a program to perform multiple tasks concurrently. Threads represent lightweight processes that share the same resources (memory, files, etc.) within a single process.
+9.
+There are two ways to implement a thread in Java:
+By extending the Thread class: The custom thread class must override the run() method, which contains the code to be executed by the thread.
+By implementing the Runnable interface: The custom class must implement the Runnable interface and override the run() method. The custom class is then passed as a parameter to the Thread constructor.
+10.
+Garbage collection is an automatic memory management feature in Java that automatically identifies and frees up memory occupied by objects that are no longer reachable or in use by the program. It ensures efficient memory utilization and helps prevent memory leaks and manual memory management errors. The Java Virtual Machine (JVM) performs garbage collection at runtime, and developers do not need to explicitly deallocate memory for objects.
+
