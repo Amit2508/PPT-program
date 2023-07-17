@@ -1,0 +1,70 @@
+1. Compiler :  It is a software which takes sourcecode (HLL) as the input and generates MLL code as the ouput .To convert the HLL code to MLL code compiler will scan the HLL code
+only once.
+Interpreter : It is a software which takes sourcecode(HLL) as the input and generates MLL code as the ouput .To convert the HLL code to MLL code interpreter will scan the HLL
+code mulitple times(depends on the instructions).
+
+2. JDK stands for Java Development kit, it provides libraries and the requried files to run our java programs.
+   JRE :- Java RunTimeEnvironment, It provides suitable environment to run our java program.
+   JVM :- Java Virtual Machine, It is responsible to run our java programs on the basis of MultiThreading.
+
+3. Heap Memory ,Method Area , JVM Stack
+
+4. JIT stands for Just-In-Time. In the context of Java and other programming languages that use bytecode, the JIT compiler is a crucial component of the runtime environment, such as the Java Virtual Machine (JVM).
+When Java source code is compiled, it is converted into an intermediate representation called bytecode, which is platform-independent. The JVM then interprets this bytecode to execute the program. However, interpreting bytecode can be relatively slow compared to native machine code execution.
+
+5. public ,private, default , protected.
+
+6. In Java, a compiler is a software tool responsible for translating Java source code written by developers into bytecode, which is an intermediate representation of the code that is platform-independent. The bytecode is not executed directly on the hardware; instead, it is meant to be run on the Java Virtual Machine (JVM).
+
+7. Local Variables:
+ Local variables are declared within a method, constructor, or a block of code, and they are accessible only within that specific scope. They must be initialized before they can be used.
+
+Instance Variables (Non-Static Variables):
+Instance variables are declared within a class but outside any method or block. They belong to the instance of the class, which means each object of the class has its copy of instance variables.
+They are initialized to their default values if not explicitly initialized: numeric types to 0, boolean to false, and object references to null.
+
+Class Variables (Static Variables):
+
+Class variables are declared with the static keyword and belong to the class rather than instances of the class. There is only one copy of a class variable shared among all objects of the class.
+They are initialized to their default values if not explicitly initialized: numeric types to 0, boolean to false, and object references to null.
+
+8. Primitive Data Types:
+These are the most basic data types in Java.
+
+Numeric Types:
+
+byte: 8-bit signed integer. Range: -128 to 127.
+short: 16-bit signed integer. Range: -32,768 to 32,767.
+int: 32-bit signed integer. Range: -2^31 to 2^31 - 1.
+long: 64-bit signed integer. Range: -2^63 to 2^63 - 1.
+float: 32-bit floating-point. Used for decimal numbers with single-precision.
+double: 64-bit floating-point. Used for decimal numbers with double-precision.
+Other Primitive Types:
+
+char: 16-bit Unicode character. Represents a single character or an ASCII value.
+boolean: Represents a boolean value, either true or false
+
+Reference Data Types:
+These data types are used to reference objects. They don't store the actual data but instead store references (memory addresses) to objects.
+
+All objects in Java, including arrays and user-defined classes, are reference data types.
+Examples of reference data types include:
+String: Represents a sequence of characters.
+User-defined classes: Classes created by developers to model specific entities or concepts in their programs.
+Arrays: Collection of elements of the same type.
+
+9. In Java, identifiers are names used to identify various elements in a program, such as variables, methods, classes, and labels. An identifier is a sequence of letters, digits, underscores (_), and dollar signs ($) that must follow certain rules and conventions. Here are the key rules for identifiers in Java:
+
+It must begin with a letter (a to z or A to Z), underscore (_), or dollar sign ($). It cannot start with a digit (0 to 9).
+After the initial character, the identifier can contain letters, digits, underscores, and dollar signs.
+Java is case-sensitive, so myVar, MyVar, and myvar are all considered different identifiers.
+It cannot be a reserved keyword. Reserved keywords are predefined words in Java that have specific meanings and cannot be used as identifiers. For example, int, class, if, etc., are reserved keywords.
+
+10. The Java Virtual Machine (JVM) is a critical component of the Java Runtime Environment (JRE) and plays a central role in enabling Java's "write once, run anywhere".
+It is responsible for executing Java bytecode and providing a platform-independent runtime environment for Java applications. The architecture of the JVM can be broken down into several components:
+
+Class Loader Subsystem
+Runtime Data Areas
+Execution Engine
+Native Interface
+
